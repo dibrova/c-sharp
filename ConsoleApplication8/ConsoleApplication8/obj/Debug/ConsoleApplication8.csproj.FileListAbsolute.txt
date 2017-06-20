@@ -1,0 +1,6 @@
+E:\Projects_C\ConsoleApplication8\ConsoleApplication8\bin\Debug\ConsoleApplication8.exe.config
+E:\Projects_C\ConsoleApplication8\ConsoleApplication8\bin\Debug\ConsoleApplication8.exe
+E:\Projects_C\ConsoleApplication8\ConsoleApplication8\bin\Debug\ConsoleApplication8.pdb
+E:\Projects_C\ConsoleApplication8\ConsoleApplication8\obj\Debug\ConsoleApplication8.csprojResolveAssemblyReference.cache
+E:\Projects_C\ConsoleApplication8\ConsoleApplication8\obj\Debug\ConsoleApplication8.exe
+E:\Projects_C\ConsoleApplication8\ConsoleApplication8\obj\Debug\ConsoleApplication8.pdb
