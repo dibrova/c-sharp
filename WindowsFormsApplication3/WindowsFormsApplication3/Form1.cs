@@ -14,10 +14,9 @@ namespace WindowsFormsApplication3
     {
         int numButton = 1;
         int xyOffSet = 5;
-        int xPos;
-        int yPos;
+        int xPos, yPos;
         Size buttonSize = new Size (50,25);
-
+        
         const int N = 10, M = 10;
         Button[,] arrayButton = new Button[N, M];
         ToolTip tTip = new ToolTip();
@@ -34,6 +33,8 @@ namespace WindowsFormsApplication3
                     arrayButton[i, j].Location = new Point(xPos, yPos);
                     arrayButton[i, j].Size = buttonSize;
                     arrayButton[i, j].Click += Form1_mClick;
+                    tTip.SetToolTip(arrayButton[i, j], $"строка: {i + 1}, столбец: {j + 1}");
+                    this.Controls.Add(arrayButton[i, j]);
                     xPos += buttonSize.Width + xyOffSet;
                     numButton++;
                 }
@@ -44,15 +45,6 @@ namespace WindowsFormsApplication3
 
         private void Form1_mClick(object sender, EventArgs e) {
             this.Controls.Remove((Button)sender);
-        }
-
-        private void Form1_Load(object sender, EventArgs e) {
-            for (int i = 0; i < N; i++) {
-                for (int j = 0; j < M; j++) {
-                    tTip.SetToolTip(arrayButton[i, j], $"строка: {i + 1}, столбец: {j + 1}");
-                    this.Controls.Add(arrayButton[i, j]);
-                }
-            }
         }
     }
 }
