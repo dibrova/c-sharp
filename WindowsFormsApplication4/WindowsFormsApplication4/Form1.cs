@@ -13,8 +13,7 @@ namespace WindowsFormsApplication4
     public partial class Form1 : Form
     {
         Timer tm = new Timer();
-        int count = 1;
-        int mlsec = 0;
+        int mlSec = 0;
 
         public Form1()
         {
@@ -23,29 +22,35 @@ namespace WindowsFormsApplication4
             tm.Tick += Tm_Tick;
             tm.Start();
             InitializeComponent();
-            this.MouseClick += Form1_MouseClick;
-            
+            this.MouseDoubleClick += Form1_MouseDoubleClick;
+            this.BackColor = Color.Beige;
+        }
+
+        private void Form1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            mlSec = 0;
+            this.MouseClick += Form1_MouseClick1;
+        }
+
+        private void Form1_MouseClick1(object sender, MouseEventArgs e)
+        {
+            if (mlSec < 6) {
+               this.BackColor = Color.GreenYellow;
+               MessageBox.Show($"Triple Click!!! {mlSec}00ms");
+                
+            }
+            else {
+                this.BackColor = Color.DarkRed;
+                MessageBox.Show($"Whery Slow! {mlSec}00ms");
+                
+            }
+            this.BackColor = Color.Beige;
+            this.MouseClick -= Form1_MouseClick1;
         }
 
         private void Tm_Tick(object sender, EventArgs e)
         {
-            mlsec++;
-        }
-
-        private void Form1_MouseClick(object sender, MouseEventArgs e)
-        {
-            //this.BackColor=Color.Beige;
-            ///MessageBox.Show($"MouseClick {count} {mlsec}");
-            if (count == 3) {
-                if (mlsec < 11)
-                {
-                    MessageBox.Show($"Mouse Triple Click!!! \n{count} Click\t{mlsec}");
-                }
-                else MessageBox.Show($"Whery Slow! \n{count} Click\t{mlsec}");
-                count = 0;
-                mlsec = 0;
-            }
-            count++;
+            mlSec++;
         }
     }
 }
