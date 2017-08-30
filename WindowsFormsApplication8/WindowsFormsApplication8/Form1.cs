@@ -1,0 +1,156 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+
+namespace WindowsFormsApplication8
+{
+    public partial class Form1 : Form
+    {
+        //public Form1()
+        //{
+        //    InitializeComponent();
+        //}
+
+        public Form1()
+        {
+            InitializeComponent();
+
+            treeView1.BeforeSelect += treeView1_BeforeSelect;
+            treeView1.BeforeExpand += treeView1_BeforeExpand;
+            // заполняем дерево дисками
+            FillDriveNodes();
+        }
+        // событие перед раскрытием узла
+        void treeView1_BeforeExpand(object sender, TreeViewCancelEventArgs e)
+        {
+            e.Node.Nodes.Clear();
+            string[] dirs;
+            string[] files;
+            try
+            {
+                if (Directory.Exists(e.Node.FullPath) || File.Exists(e.Node.FullPath))
+                {
+                    dirs = Directory.GetDirectories(e.Node.FullPath);
+                    files = Directory.GetFiles(e.Node.FullPath);
+                    if (dirs.Length != 0)
+                    {
+                        for (int i = 0; i < dirs.Length; i++)
+                        {
+                            TreeNode dirNode = new TreeNode(new DirectoryInfo(dirs[i]).Name);
+                            FillTreeNode(dirNode, dirs[i]);
+                            e.Node.Nodes.Add(dirNode);
+                        }
+                    }
+
+                    if (files.Length != 0)
+                    {
+                        for (int i = 0; i < dirs.Length; i++)
+                        {
+                            TreeNode fileNode = new TreeNode(new DirectoryInfo(files[i]).Name);
+                            fileNode.ImageIndex = 0;
+                            FillTreeNode(fileNode, files[i]);
+                            e.Node.Nodes.Add(fileNode);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { }
+        }
+        // событие перед выделением узла
+        void treeView1_BeforeSelect(object sender, TreeViewCancelEventArgs e)
+        {
+            e.Node.Nodes.Clear();
+            string[] dirs;
+            string[] files;
+            try
+            {
+                if (Directory.Exists(e.Node.FullPath))
+                {
+                    dirs = Directory.GetDirectories(e.Node.FullPath);
+                    if (dirs.Length != 0)
+                    {
+                        for (int i = 0; i < dirs.Length; i++)
+                        {
+                            TreeNode dirNode = new TreeNode(new DirectoryInfo(dirs[i]).Name);
+                            FillTreeNode(dirNode, dirs[i]);
+                            e.Node.Nodes.Add(dirNode);
+                        }
+                    }
+                }
+                if (File.Exists(e.Node.FullPath)) 
+                {
+                    files = Directory.GetFiles(e.Node.FullPath);
+                    if (files.Length != 0)
+                    {
+                        for (int i = 0; i < files.Length; i++)
+                        {
+                            TreeNode fileNode = new TreeNode(new DirectoryInfo(files[i]).Name);
+                            FillTreeNode(fileNode, files[i]);
+                            fileNode.ImageIndex = 0;
+                            e.Node.Nodes.Add(fileNode);
+                            
+                        }
+                    }
+                }
+            }
+
+
+            catch (Exception ex) { }
+        }
+
+        // получаем все диски на компьютере
+        private void FillDriveNodes()
+        {
+            try
+            {
+                foreach (DriveInfo drive in DriveInfo.GetDrives())
+                {
+                    TreeNode driveNode = new TreeNode { Text = drive.Name };
+                    FillTreeNode(driveNode, drive.Name);
+                    treeView1.Nodes.Add(driveNode);
+                }
+            }
+            catch (Exception ex) { }
+        }
+        // получаем дочерние узлы для определенного узла
+        private void FillTreeNode(TreeNode driveNode, string path)
+        {
+            try
+            {
+                string[] dirs = Directory.GetDirectories(path);
+                string[] files = Directory.GetFiles(path);
+                foreach (string dir in dirs)
+                {
+                    TreeNode dirNode = new TreeNode();
+                    dirNode.Text = dir.Remove(0, dir.LastIndexOf("\\") + 1);
+                    driveNode.Nodes.Add(dirNode);
+                    
+                }
+                foreach (string file in files)
+                {
+                    TreeNode fileNode = new TreeNode();
+                    fileNode.Text = file.Remove(0, file.LastIndexOf("\\") + 1);
+                    fileNode.ImageIndex = 0;
+                    driveNode.Nodes.Add(fileNode);
+                    //MessageBox.Show(fileNode.Text);
+                }
+
+            }
+            catch (Exception ex) { }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog1.ShowDialog();
+            var p = folderBrowserDialog1.SelectedPath;
+            MessageBox.Show(p);
+        }
+    }
+}
