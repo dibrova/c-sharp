@@ -1,0 +1,36 @@
+﻿<Window x:Class="WpfApplication3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+
+    <Grid  Margin="4" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+
+        </Grid.ColumnDefinitions>
+        <WrapPanel HorizontalAlignment="Left" Height="Auto" Margin="2" Width="Auto">
+            <Button Name="button1" Content="Линия" Margin="2" />
+            <Button Name="button2" Content="Прямоугольник" Margin="2" />
+            <Button Name="button3" Content="Квадрат" Margin="2" />
+            <Button Name="button4" Content="Окружность" Margin="2" />
+            <Button Name="button5" Content="Элипс" Margin="2" />
+            <Button Name="button6" Content="Кривая линия" Margin="2" />
+            <Button Name="button7" Content="Сплайн" Margin="2" />
+            <Button Name="button8" Content="Плоскость" Margin="2" />
+            <Button Name="button9" Content="Параллелипипед" Margin="2" />
+            <Button Name="button10" Content="Куб" Margin="2" />
+            <Button Name="button11" Content="Пирамида" Margin="2" />
+            <Button Name="button12" Content="Конус" Margin="2" />
+            <Button Name="button13" Content="Цилиндр" Margin="2" />
+            <Button Name="button14" Content="Шар" Margin="2" />
+            <Button Name="button15" Content="Поверхность" Margin="2" />
+        </WrapPanel>
+
+
+    </Grid>
+</Window>
