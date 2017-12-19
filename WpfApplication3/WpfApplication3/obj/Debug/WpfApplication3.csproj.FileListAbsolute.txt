@@ -1,0 +1,17 @@
+E:\Projects_C\WpfApplication3\WpfApplication3\bin\Debug\WpfApplication3.exe.config
+E:\Projects_C\WpfApplication3\WpfApplication3\obj\Debug\WpfApplication3.csprojResolveAssemblyReference.cache
+E:\Projects_C\WpfApplication3\WpfApplication3\obj\Debug\App.g.cs
+E:\Projects_C\WpfApplication3\WpfApplication3\obj\Debug\WpfApplication3_MarkupCompile.cache
+E:\Projects_C\WpfApplication3\WpfApplication3\bin\Debug\WpfApplication3.exe
+E:\Projects_C\WpfApplication3\WpfApplication3\bin\Debug\WpfApplication3.pdb
+E:\Projects_C\WpfApplication3\WpfApplication3\obj\Debug\MainWindow.g.cs
+E:\Projects_C\WpfApplication3\WpfApplication3\obj\Debug\WpfApplication3_MarkupCompile.lref
+E:\Projects_C\WpfApplication3\WpfApplication3\obj\Debug\MainWindow.baml
+E:\Projects_C\WpfApplication3\WpfApplication3\obj\Debug\WpfApplication3.g.resources
+E:\Projects_C\WpfApplication3\WpfApplication3\obj\Debug\WpfApplication3.Properties.Resources.resources
+E:\Projects_C\WpfApplication3\WpfApplication3\obj\Debug\WpfApplication3.csproj.GenerateResource.Cache
+E:\Projects_C\WpfApplication3\WpfApplication3\obj\Debug\WpfApplication3.exe
+E:\Projects_C\WpfApplication3\WpfApplication3\obj\Debug\WpfApplication3.pdb
+E:\Projects_C\WpfApplication3\WpfApplication3\obj\Debug\WpfApplication3_Content.g.cs
+E:\Projects_C\WpfApplication3\WpfApplication3\bin\Debug\source\Database1.mdf
+E:\Projects_C\WpfApplication3\WpfApplication3\bin\Debug\source\Database1_log.ldf
